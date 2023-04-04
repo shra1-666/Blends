@@ -1,0 +1,367 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+* {
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+:root {
+    --color-primary: #024126;
+    --color-secondary: #ffffff;
+}
+
+html::-webkit-scrollbar {
+    width: 10px;
+}
+
+html::-webkit-scrollbar-track {
+    background-color: #111;
+}
+
+html::-webkit-scrollbar-thumb {
+    background-color: #CE1717;
+    border-radius: 50px;
+}
+
+* {
+    scrollbar-color: #CE1717 #111;
+    scrollbar-width: thin;
+}
+
+.container {
+    /* width: 100vw;
+    height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    background-color: var(--color-primary);
+}
+
+/* ------------------------------------------------------------------------------
+Index Page Start
+------------------------------------------------------------------------------ */
+
+.hero-pattern{
+    z-index: 1;
+    position: absolute;
+    top: -30px;
+    left: -200px;
+    scale: 82%; 
+    overflow: hidden;
+}
+
+.hero-back{
+    z-index: 0;
+    position: absolute;
+    left: 50px;
+    scale: 70%;
+}
+
+.navigation-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 15%;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.nav-bar{
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--color-primary);
+    padding: 0px 10px;
+    border-radius: 50px;
+    z-index: 100;
+    position: fixed;
+    top: 20px;
+}
+
+.nav-logo{
+    scale: 70%;
+}
+
+.nav-entries-logo:hover{
+
+    filter:
+    invert(17%)
+    sepia(40%)
+    saturate(520%)
+    hue-rotate(352deg)
+    brightness(68%) 
+    contrast(97%);
+}
+
+.nav-entries{
+    font-size: 18px;
+    font-weight: 400;
+    text-decoration: none;
+    color: var(--color-secondary);
+    transition: 0.2s ease-in-out;
+}
+
+.nav-entries:hover{
+color: #D3AD7F;
+}
+
+#hero{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.caption-div{
+    z-index: 10;
+    overflow: hidden;
+    position: absolute;
+    top: 385px;
+    left: 350px;
+}
+
+.caption-entries{
+    font-weight: 600;
+    font-size: 45px;
+    color: var(--color-secondary);
+    margin-top: -18px;
+}
+
+.caption-entries-span{
+    font-size: 45px;
+    font-weight: 600;
+    color: #CE1717;
+    transition: 0.2s ease-in-out;   
+}
+
+.caption-entries-span:hover{
+  text-shadow: 10px 20px 6rem #ff0505;
+  color: #fa402f;
+}
+
+.sign-in-btn-hero-div{
+    z-index: 10;
+    position: absolute;
+    top: 540px;
+    left: 350px;
+    width: 200px;
+    height: 50px;
+}
+
+.sign-in-btn-hero{
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--color-secondary);
+    padding: 10px 30px;
+    background-color: #62011D;
+    transition: 0.2s ease-in-out;
+}
+
+.sign-in-btn-hero:hover{
+    background-color: #CE1717;
+}
+
+.nextpage-btn-div{
+    width: 100%;
+    margin-top: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.nextpage-btn-div a{
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    transition: 0.2s ease-in-out;
+}
+
+@keyframes floating {
+    0% {
+        transform: translate(0, 0px);
+    }
+    50% {
+        transform: translate(0, 15px);
+    }
+    100% {
+        transform: translate(0, -0px);
+    }
+}
+
+
+.naxt-page-caption{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--color-secondary);
+    line-height: 25px;
+    margin-top: 20px;
+}
+
+#guide{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #024126;
+    align-items: center;
+    z-index: 2;
+}
+
+.back-patters-guide{
+    position: absolute;
+    scale: 80%;
+    z-index: -10;
+}
+
+.back-image-guide{
+    position: absolute;
+    scale: 80%;
+    top: 1020px;
+    left: 400px;
+    z-index: -5;
+}
+
+.sec-heading-container{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 120px;
+}
+
+.welcome-note-div{
+    display: flex;
+    width: 75%;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 80px;
+}
+
+.sec-head-1{
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 35px;
+    color: var(--color-secondary);
+}
+
+.sec-head-2{
+    color: #80A093;
+    margin-top: -15px;
+}
+
+.since-text{
+    font-weight: 700;
+    font-size: 20px;
+    color: #D3AD7F;
+    margin-bottom: -40px;
+    margin-left: 5px;
+}
+
+.since-year{
+    font-weight: 700;
+    font-size: 100px;
+    color: #D3AD7F;
+}
+
+.welcome-para-text{
+    width: 400px;
+    color: var(--color-secondary);
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.guide-spec-container{
+    display: flex;
+    width: 65%;
+    justify-content: space-between;
+    margin-top: 70px;
+}
+
+.guide-spec-content h1{
+    font-weight: 800;
+    font-size: 30px;
+    color: #D3AD7F;
+}
+
+.guide-spec-head-sec2{
+    margin-top: -20px;
+}
+
+.guide-spec-content p{
+    font-weight: 400;
+    font-size: 15px;
+    color: var(--color-secondary);
+    width: 255px;
+}
+
+#explore{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+}
+
+.explore-back-pattern{
+    position: absolute;
+    scale: 80%;
+    z-index: -2;
+    top: 1550px;
+}
+
+.explore-vector{
+    position: absolute;
+    scale: 80%;
+    top: 1520px;
+    left: -200px;
+    z-index: -10;
+}
+
+.sec-head-1-explore{
+    color: #024126;
+}
+
+.explore-spec-content h1{
+    color: #024126;
+}
+
+.explore-spec-content p{
+    color: #836F57;
+    font-weight: 600;
+}
+
+#about{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+}
+
+.sec-head-1-about{
+    color: var(--color-secondary);
+}
+
+.about-para-div p{
+    width: 900px;
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--color-secondary);
+    margin-top: 20px;
+}
+
+/* ------------------------------------------------------------------------------
+Index Page End
+------------------------------------------------------------------------------ */
