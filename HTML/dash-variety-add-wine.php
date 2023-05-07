@@ -3,15 +3,14 @@ session_start();
 $uname=$_SESSION['userid'];
 $mysqli = require "../PHP/DataBase/dbConnect.php";
 $count=0;
+$variety_id = $_GET['variety_id'];
 //Code for selecting total no of bottles
 
-$sql = sprintf("SELECT * from wine_regions
-                    WHERE userid='$uname'");
+$sql = sprintf("SELECT * FROM wines w
+                    WHERE w.userid='$uname' AND w.wine_id NOT IN(
+                    SELECT v.wine_id FROM varieties v WHERE v.variety_id=$variety_id)");
 $result = $mysqli->query($sql);
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -60,9 +59,9 @@ $result = $mysqli->query($sql);
 
                 <div class="dash-nav-main-entry dash-nav-main-entry-dummy">
                     <div class="dash-nav-main-logo">
-                        <img src="../Resources/Dash4.svg" alt="">
+                        <img class="dashboard-current-color" src="../Resources/Dash4.svg" alt="">
                     </div>
-                    <div class="dash-nav-main-text dash-nav-main-text-dummy">
+                    <div class="dash-nav-main-text">
                         <a href=""><h3>Collection</h3></a>
                     </div>
                 </div>
@@ -72,76 +71,47 @@ $result = $mysqli->query($sql);
                         <img src="../Resources/Dash5.svg" alt="">
                     </div>
                     <div class="dash-nav-main-text dash-nav-main-text-dummy">
-                        <a href=""><h3>Notes</h3></a>
+                        <a href=""><h3>Review</h3></a>
                     </div>
                 </div>
 
                 <div class="dash-nav-main-entry dash-nav-main-entry-dummy">
                     <div class="dash-nav-main-logo">
-                        <img class="dashboard-current-color" src="../Resources/Dash6.svg" alt="">
-                    </div>
-                    <div class="dash-nav-main-text">
-                        <a href=""><h3>Regions</h3></a>
-                    </div>
-                </div>
-                <div class="dash-nav-main-entry dash-nav-main-entry-dummy">
-                    <div class="dash-nav-main-logo">
-                        <img src="../Resources/Dash7.svg" alt="">
+                        <img src="../Resources/Dash6.svg" alt="">
                     </div>
                     <div class="dash-nav-main-text dash-nav-main-text-dummy">
-                        <a href="dash-varieties.php"><h3>Varieties</h3></a>
+                        <a href=""><h3>Inventory</h3></a>
                     </div>
                 </div>
 
             </div>
             <hr class="dash-hr">
             <div class="dash-contents-div">
-                <div class="dash-wines-content-container">
-                    <div class="dash-wines-add-wine-div">
-                        <a href="dash-addRegion.php">Add region</a>
-                    </div>
-                    <div class="dash-wines-list-container">
-                        <div class="dash-wines-list-head">
-                            <div class="dash-wines-slno">
-                                <h1 class="dash-wines-text">Sl. No</h1>
+                <div class="dash-wines-content-container dash-add-wines-container">
+                    
+                    <form class="dash-add-wine-entry-container dash-add-wine-entry-container-add-wine-coll" action="../PHP/Login/add-wine-to-variety.php" method="post">
+                        <div class="dash-add-wines-content-div1 add-wines-coll-sec">
+                            <div class="add-wines-sec">
+                                <label for="region">Select wine</label>
+                                <select name="wine_id" id="region">
+                                
+                                <?php
+                                while ($row = mysqli_fetch_assoc($result))
+                                {
+                                ?>
+
+                                <option value="<?php echo $row["wine_id"];?>"><?php echo $row["wine_name"]; ?></option>
+
+                                <?php
+                                }
+                                ?>
+                                </select>
                             </div>
-                            <div class="dash-wines-name">
-                                <h1 class="dash-wines-text">Region name</h1>
-                            </div>
-                            <div class="dash-wines-winery">
-                                <h1 class="dash-wines-text">Country</h1>
-                            </div>
-                            <div class="dash-wines-region">
-                                <h1 class="dash-wines-text">Climate</h1>
-                            </div>
+
                         </div>
-
-                        <?php
-                            while ($row = mysqli_fetch_assoc($result))
-                            {
-                                $count=$count+1;
-                        ?>
-
-                        <div class="dash-wines-list-head dash-wines-list-head-value">
-                            <div class="dash-wines-slno">
-                                <h1 class="dash-wines-text dash-wines-text-black"><?php echo $count; ?></h1>
-                            </div>
-                            <div class="dash-wines-name">
-                                <h1 class="dash-wines-text dash-wines-text-black"><?php echo $row["region_name"]; ?></h1>
-                            </div>
-                            <div class="dash-wines-winery">
-                                <h1 class="dash-wines-text dash-wines-text-black"><?php echo $row["country"]; ?></h1>
-                            </div>
-                            <div class="dash-wines-region">
-                                <h1 class="dash-wines-text dash-wines-text-black"><?php echo $row["climate"]; ?></h1>
-                            </div>
-                        </div>
-
-                        <?php
-                            }
-                        ?>
-
-                    </div>
+                        <input type="hidden" name="variety_id" value="<?php echo $variety_id; ?>">
+                        <input class="add-wine-sub-btn" type="submit" value="Submit">
+                    </form>
 
                 </div>
             </div>

@@ -3,16 +3,13 @@ session_start();
 $uname=$_SESSION['userid'];
 $mysqli = require "../PHP/DataBase/dbConnect.php";
 $count=0;
-//Code for selecting total no of bottles
-
-$sql = sprintf("SELECT * from wine_regions
-                    WHERE userid='$uname'");
+$variety_id = $_GET['variety_id'];
+    
+$sql = sprintf("SELECT wines.* FROM varieties INNER JOIN wines ON varieties.wine_id = wines.wine_id
+                    WHERE varieties.variety_id='$variety_id' and varieties.userid='$uname' and wines.userid='$uname'");
 $result = $mysqli->query($sql);
 
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,7 +35,7 @@ $result = $mysqli->query($sql);
                     <div class="dash-nav-main-text dash-nav-main-text-dummy">
                         <a href="dashboard.php"><h3>Dashboard</h3></a>
                     </div>
-                </div>
+            </div>
 
                 <div class="dash-nav-main-entry dash-nav-main-entry-dummy">
                     <div class="dash-nav-main-logo">
@@ -78,18 +75,18 @@ $result = $mysqli->query($sql);
 
                 <div class="dash-nav-main-entry dash-nav-main-entry-dummy">
                     <div class="dash-nav-main-logo">
-                        <img class="dashboard-current-color" src="../Resources/Dash6.svg" alt="">
+                        <img src="../Resources/Dash6.svg" alt="">
                     </div>
-                    <div class="dash-nav-main-text">
+                    <div class="dash-nav-main-text dash-nav-main-text-dummy">
                         <a href=""><h3>Regions</h3></a>
                     </div>
                 </div>
                 <div class="dash-nav-main-entry dash-nav-main-entry-dummy">
                     <div class="dash-nav-main-logo">
-                        <img src="../Resources/Dash7.svg" alt="">
+                        <img class="dashboard-current-color" src="../Resources/Dash7.svg" alt="">
                     </div>
-                    <div class="dash-nav-main-text dash-nav-main-text-dummy">
-                        <a href="dash-varieties.php"><h3>Varieties</h3></a>
+                    <div class="dash-nav-main-text">
+                        <a href=""><h3>Varieties</h3></a>
                     </div>
                 </div>
 
@@ -98,7 +95,10 @@ $result = $mysqli->query($sql);
             <div class="dash-contents-div">
                 <div class="dash-wines-content-container">
                     <div class="dash-wines-add-wine-div">
-                        <a href="dash-addRegion.php">Add region</a>
+                        <?php
+                            $redir_url='dash-variety-add-wine.php?variety_id=' . urlencode($variety_id);
+                        ?>
+                        <a href="<?php echo $redir_url; ?>">Add to collection</a>
                     </div>
                     <div class="dash-wines-list-container">
                         <div class="dash-wines-list-head">
@@ -106,13 +106,13 @@ $result = $mysqli->query($sql);
                                 <h1 class="dash-wines-text">Sl. No</h1>
                             </div>
                             <div class="dash-wines-name">
-                                <h1 class="dash-wines-text">Region name</h1>
+                                <h1 class="dash-wines-text">Wine name</h1>
                             </div>
                             <div class="dash-wines-winery">
-                                <h1 class="dash-wines-text">Country</h1>
+                                <h1 class="dash-wines-text">Vintage year</h1>
                             </div>
                             <div class="dash-wines-region">
-                                <h1 class="dash-wines-text">Climate</h1>
+                                <h1 class="dash-wines-text">Alcohol content(%)</h1>
                             </div>
                         </div>
 
@@ -127,13 +127,13 @@ $result = $mysqli->query($sql);
                                 <h1 class="dash-wines-text dash-wines-text-black"><?php echo $count; ?></h1>
                             </div>
                             <div class="dash-wines-name">
-                                <h1 class="dash-wines-text dash-wines-text-black"><?php echo $row["region_name"]; ?></h1>
+                                <h1 class="dash-wines-text dash-wines-text-black"><?php echo $row["wine_name"]; ?></h1>
                             </div>
                             <div class="dash-wines-winery">
-                                <h1 class="dash-wines-text dash-wines-text-black"><?php echo $row["country"]; ?></h1>
+                                <h1 class="dash-wines-text dash-wines-text-black"><?php echo $row["vintage_year"]; ?></h1>
                             </div>
                             <div class="dash-wines-region">
-                                <h1 class="dash-wines-text dash-wines-text-black"><?php echo $row["climate"]; ?></h1>
+                                <h1 class="dash-wines-text dash-wines-text-black"><?php echo $row["alcohol_content"]; ?></h1>
                             </div>
                         </div>
 

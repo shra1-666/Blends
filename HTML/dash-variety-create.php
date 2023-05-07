@@ -5,9 +5,17 @@ $mysqli = require "../PHP/DataBase/dbConnect.php";
 $count=0;
 //Code for selecting total no of bottles
 
-$sql = sprintf("SELECT * from wine_regions
+$sql = sprintf("SELECT * FROM wineries
                     WHERE userid='$uname'");
 $result = $mysqli->query($sql);
+
+$sql2 = sprintf("SELECT * FROM wine_regions
+                    WHERE userid='$uname'");
+$result2 = $mysqli->query($sql2);
+
+$sql3 = sprintf("SELECT * FROM grape_varieties
+                    WHERE userid='$uname'");
+$result3 = $mysqli->query($sql3);
 
 ?>
 
@@ -60,9 +68,9 @@ $result = $mysqli->query($sql);
 
                 <div class="dash-nav-main-entry dash-nav-main-entry-dummy">
                     <div class="dash-nav-main-logo">
-                        <img src="../Resources/Dash4.svg" alt="">
+                        <img class="dashboard-current-color" src="../Resources/Dash4.svg" alt="">
                     </div>
-                    <div class="dash-nav-main-text dash-nav-main-text-dummy">
+                    <div class="dash-nav-main-text">
                         <a href=""><h3>Collection</h3></a>
                     </div>
                 </div>
@@ -72,76 +80,45 @@ $result = $mysqli->query($sql);
                         <img src="../Resources/Dash5.svg" alt="">
                     </div>
                     <div class="dash-nav-main-text dash-nav-main-text-dummy">
-                        <a href=""><h3>Notes</h3></a>
+                        <a href=""><h3>Review</h3></a>
                     </div>
                 </div>
 
                 <div class="dash-nav-main-entry dash-nav-main-entry-dummy">
                     <div class="dash-nav-main-logo">
-                        <img class="dashboard-current-color" src="../Resources/Dash6.svg" alt="">
-                    </div>
-                    <div class="dash-nav-main-text">
-                        <a href=""><h3>Regions</h3></a>
-                    </div>
-                </div>
-                <div class="dash-nav-main-entry dash-nav-main-entry-dummy">
-                    <div class="dash-nav-main-logo">
-                        <img src="../Resources/Dash7.svg" alt="">
+                        <img src="../Resources/Dash6.svg" alt="">
                     </div>
                     <div class="dash-nav-main-text dash-nav-main-text-dummy">
-                        <a href="dash-varieties.php"><h3>Varieties</h3></a>
+                        <a href=""><h3>Inventory</h3></a>
                     </div>
                 </div>
 
             </div>
             <hr class="dash-hr">
             <div class="dash-contents-div">
-                <div class="dash-wines-content-container">
-                    <div class="dash-wines-add-wine-div">
-                        <a href="dash-addRegion.php">Add region</a>
-                    </div>
-                    <div class="dash-wines-list-container">
-                        <div class="dash-wines-list-head">
-                            <div class="dash-wines-slno">
-                                <h1 class="dash-wines-text">Sl. No</h1>
+                <div class="dash-wines-content-container dash-add-wines-container">
+                    
+                    <form class="dash-add-wine-entry-container dash-add-wine-entry-container-add-wineries" action="../PHP/Login/create-variety.php" method="post">
+                        <div class="dash-add-wines-content-div1">
+                            <div class="add-wines-sec">
+                                <label for="name">Variety name</label>
+                                <input name="variety_name" type="text" required>
                             </div>
-                            <div class="dash-wines-name">
-                                <h1 class="dash-wines-text">Region name</h1>
+                            <div class="add-wines-sec">
+                                <label for="name">Color</label>
+                                <input name="color" type="text" required>
                             </div>
-                            <div class="dash-wines-winery">
-                                <h1 class="dash-wines-text">Country</h1>
-                            </div>
-                            <div class="dash-wines-region">
-                                <h1 class="dash-wines-text">Climate</h1>
+
+                        </div>
+                        <div class="dash-add-wines-content-div2">
+
+                            <div class="add-wines-sec">
+                                <label for="year">Percentage</label>
+                                <input name="percentage" type="text" required>
                             </div>
                         </div>
-
-                        <?php
-                            while ($row = mysqli_fetch_assoc($result))
-                            {
-                                $count=$count+1;
-                        ?>
-
-                        <div class="dash-wines-list-head dash-wines-list-head-value">
-                            <div class="dash-wines-slno">
-                                <h1 class="dash-wines-text dash-wines-text-black"><?php echo $count; ?></h1>
-                            </div>
-                            <div class="dash-wines-name">
-                                <h1 class="dash-wines-text dash-wines-text-black"><?php echo $row["region_name"]; ?></h1>
-                            </div>
-                            <div class="dash-wines-winery">
-                                <h1 class="dash-wines-text dash-wines-text-black"><?php echo $row["country"]; ?></h1>
-                            </div>
-                            <div class="dash-wines-region">
-                                <h1 class="dash-wines-text dash-wines-text-black"><?php echo $row["climate"]; ?></h1>
-                            </div>
-                        </div>
-
-                        <?php
-                            }
-                        ?>
-
-                    </div>
+                        <input class="add-wine-sub-btn" type="submit" value="Submit">
+                    </form>
 
                 </div>
             </div>

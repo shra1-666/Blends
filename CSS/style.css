@@ -739,7 +739,7 @@ Wines Page Start
 .coll-5 {
     width: 10%;
 }
-.coll-5 a{
+.coll-5 a {
     text-decoration: none;
     background-color: #ce1717;
     padding: 0px 0px;
@@ -751,12 +751,13 @@ Wines Page Start
     scale: 102%;
 }
 
-.dash-wines-list-head-value:hover .coll-5 a{
+.dash-wines-list-head-value:hover .coll-5 a {
     display: block;
 }
 
-.dash-wine-collection-detailed-2{
+.dash-wine-collection-detailed-2 {
     flex-direction: row;
+    
 }
 
 /* ------------------------------------------------------------------------------

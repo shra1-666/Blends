@@ -150,22 +150,22 @@ $result3 = $mysqli->query($sql3);
                                 </select>
                             </div>
 
-                            <div class="add-wines-sec">
+                            <!-- <div class="add-wines-sec">
                                 <label for="region">Variety</label>
                                 <select name="variety_id" id="region">
                                 
                                 <?php
-                                while ($row3 = mysqli_fetch_assoc($result3))
-                                {
+                                //while ($row3 = mysqli_fetch_assoc($result3))
+                                //{
                                 ?>
 
-                                <option value="<?php echo $row3["variety_id"];?>"><?php echo $row3["variety_name"]; ?></option>
+                                <option value="<?php //echo $row3["variety_id"];?>"><?php //echo $row3["variety_name"]; ?></option>
 
                                 <?php
-                                }
+                                //}
                                 ?>
                                 </select>
-                            </div>
+                            </div> -->
 
                             <div class="add-wines-sec">
                                 <label for="year">Price</label>
