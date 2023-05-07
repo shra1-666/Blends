@@ -43,7 +43,7 @@ $result3 = $mysqli->query($sql3);
                     <div class="dash-nav-main-logo">
                         <img src="../Resources/Dash1.svg" alt="">
                     </div>
-                    <div class="dash-nav-main-text">
+                    <div class="dash-nav-main-text dash-nav-main-text-dummy">
                         <a href="dashboard.php"><h3>Dashboard</h3></a>
                     </div>
                 </div>
@@ -59,9 +59,9 @@ $result3 = $mysqli->query($sql3);
 
                 <div class="dash-nav-main-entry dash-nav-main-entry-dummy">
                     <div class="dash-nav-main-logo">
-                        <img src="../Resources/Dash3.svg" alt="">
+                        <img class="dashboard-current-color" src="../Resources/Dash3.svg" alt="">
                     </div>
-                    <div class="dash-nav-main-text dash-nav-main-text-dummy">
+                    <div class="dash-nav-main-text">
                         <a href="dash-wineries.php"><h3>Wineries</h3></a>
                     </div>
                 </div>

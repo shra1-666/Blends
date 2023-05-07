@@ -32,7 +32,7 @@ $result = $mysqli->query($sql);
                     <div class="dash-nav-main-logo">
                         <img src="../Resources/Dash1.svg" alt="">
                     </div>
-                    <div class="dash-nav-main-text">
+                    <div class="dash-nav-main-text dash-nav-main-text-dummy">
                         <a href="dashboard.php"><h3>Dashboard</h3></a>
                     </div>
             </div>
@@ -57,9 +57,9 @@ $result = $mysqli->query($sql);
 
                 <div class="dash-nav-main-entry dash-nav-main-entry-dummy">
                     <div class="dash-nav-main-logo">
-                        <img src="../Resources/Dash4.svg" alt="">
+                        <img class="dashboard-current-color" src="../Resources/Dash4.svg" alt="">
                     </div>
-                    <div class="dash-nav-main-text dash-nav-main-text-dummy">
+                    <div class="dash-nav-main-text">
                         <a href=""><h3>Collection</h3></a>
                     </div>
                 </div>
@@ -95,16 +95,19 @@ $result = $mysqli->query($sql);
                     <div class="dash-wines-list-container">
                         <div class="dash-wines-list-head">
                             <div class="dash-wines-slno">
-                                <h1 class="dash-wines-text">Sl. No</h1>
+                                <h1 class="dash-wines-text coll-1">Sl. No</h1>
                             </div>
-                            <div class="dash-wines-name">
+                            <div class="dash-wines-name coll-2">
                                 <h1 class="dash-wines-text">Wine name</h1>
                             </div>
-                            <div class="dash-wines-winery">
+                            <div class="dash-wines-winery coll-3">
                                 <h1 class="dash-wines-text">Vintage year</h1>
                             </div>
-                            <div class="dash-wines-region">
+                            <div class="dash-wines-region colll-4">
                                 <h1 class="dash-wines-text">Alcohol content(%)</h1>
+                            </div>
+                            <div class="coll-5">
+                                <h1 class="dash-wines-text"></h1>
                             </div>
                         </div>
 
@@ -115,17 +118,23 @@ $result = $mysqli->query($sql);
                         ?>
 
                         <div class="dash-wines-list-head dash-wines-list-head-value">
-                            <div class="dash-wines-slno">
+                            <div class="dash-wines-slno coll-1">
                                 <h1 class="dash-wines-text dash-wines-text-black"><?php echo $count; ?></h1>
                             </div>
-                            <div class="dash-wines-name">
+                            <div class="dash-wines-name coll-2">
                                 <h1 class="dash-wines-text dash-wines-text-black"><?php echo $row["wine_name"]; ?></h1>
                             </div>
-                            <div class="dash-wines-winery">
+                            <div class="dash-wines-winery coll-3">
                                 <h1 class="dash-wines-text dash-wines-text-black"><?php echo $row["vintage_year"]; ?></h1>
                             </div>
-                            <div class="dash-wines-region">
+                            <div class="dash-wines-region coll-4">
                                 <h1 class="dash-wines-text dash-wines-text-black"><?php echo $row["alcohol_content"]; ?></h1>
+                            </div>
+                            <div class="coll-5">
+                                <?php
+                                    $redir_url='../PHP/Login/remove-from-coll.php?wine_id=' . urlencode($row["wine_id"]);
+                                ?>
+                                <a href="<?php echo $redir_url; ?>" class="dash-wines-text">Remove</a>
                             </div>
                         </div>
 

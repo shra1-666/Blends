@@ -3,23 +3,14 @@ session_start();
 $uname=$_SESSION['userid'];
 $mysqli = require "../PHP/DataBase/dbConnect.php";
 $count=0;
+$listid = $_GET['list_id'];
 //Code for selecting total no of bottles
 
-$sql = sprintf("SELECT * FROM wineries
-                    WHERE userid='$uname'");
+$sql = sprintf("SELECT * FROM wines w
+                    WHERE w.userid='$uname' AND w.wine_id NOT IN(
+                    SELECT c.wine_id FROM collections c WHERE c.list_id=$listid)");
 $result = $mysqli->query($sql);
-
-$sql2 = sprintf("SELECT * FROM wine_regions
-                    WHERE userid='$uname'");
-$result2 = $mysqli->query($sql2);
-
-$sql3 = sprintf("SELECT * FROM grape_varieties
-                    WHERE userid='$uname'");
-$result3 = $mysqli->query($sql3);
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -98,21 +89,15 @@ $result3 = $mysqli->query($sql3);
             <div class="dash-contents-div">
                 <div class="dash-wines-content-container dash-add-wines-container">
                     
-                    <form class="dash-add-wine-entry-container dash-add-wine-entry-container-add-wineries" action="../PHP/Login/create-coll.php" method="post">
-                        <div class="dash-add-wines-content-div1">
+                    <form class="dash-add-wine-entry-container dash-add-wine-entry-container-add-wine-coll" action="../PHP/Login/rename-coll.php" method="post">
+                        <div class="dash-add-wines-content-div1 add-wines-coll-sec">
                             <div class="add-wines-sec">
-                                <label for="name">Collection name</label>
+                                <label for="name">Wine name</label>
                                 <input name="list_name" type="text" required>
                             </div>
 
                         </div>
-                        <div class="dash-add-wines-content-div2">
-
-                            <div class="add-wines-sec">
-                                <label for="year">Description</label>
-                                <input name="description" type="text" required>
-                            </div>
-                        </div>
+                        <input type="hidden" name="list_id" value="<?php echo $listid; ?>">
                         <input class="add-wine-sub-btn" type="submit" value="Submit">
                     </form>
 

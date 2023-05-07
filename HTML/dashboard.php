@@ -63,7 +63,7 @@ else{
             <div class="dash-main-nav-div">
                 <div class="dash-nav-main-entry">
                     <div class="dash-nav-main-logo">
-                        <img src="../Resources/Dash1.svg" alt="">
+                        <img class="dashboard-current-color" src="../Resources/Dash1.svg" alt="">
                     </div>
                     <div class="dash-nav-main-text">
                         <a href="dashboard.php"><h3>Dashboard</h3></a>

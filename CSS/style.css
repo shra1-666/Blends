@@ -639,6 +639,11 @@ Dashboard Page Start
     color: #111;
 }
 
+.dashboard-current-color {
+    filter: invert(16%) sepia(86%) saturate(3190%) hue-rotate(350deg)
+        brightness(101%) contrast(104%);
+}
+
 /* ------------------------------------------------------------------------------
 Dashboard Page End
 ------------------------------------------------------------------------------ */
@@ -727,9 +732,31 @@ Wines Page Start
     width: 25%;
 }
 
+.coll-2 {
+    width: 30%;
+}
+
+.coll-5 {
+    width: 10%;
+}
+.coll-5 a{
+    text-decoration: none;
+    background-color: #ce1717;
+    padding: 0px 0px;
+    display: none;
+}
+
 .dash-wines-list-head-value:hover {
     background-color: #c5eedd;
     scale: 102%;
+}
+
+.dash-wines-list-head-value:hover .coll-5 a{
+    display: block;
+}
+
+.dash-wine-collection-detailed-2{
+    flex-direction: row;
 }
 
 /* ------------------------------------------------------------------------------
@@ -820,7 +847,7 @@ Add Wines Page Start
     height: 230px;
 }
 
-.add-wines-coll-sec{
+.add-wines-coll-sec {
     width: 100%;
 }
 
