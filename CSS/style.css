@@ -25,12 +25,12 @@ html::-webkit-scrollbar-track {
 }
 
 html::-webkit-scrollbar-thumb {
-    background-color: #CE1717;
+    background-color: #ce1717;
     border-radius: 50px;
 }
 
 * {
-    scrollbar-color: #CE1717 #111;
+    scrollbar-color: #ce1717 #111;
     scrollbar-width: thin;
 }
 
@@ -47,23 +47,23 @@ html::-webkit-scrollbar-thumb {
 Index Page Start
 ------------------------------------------------------------------------------ */
 
-.hero-pattern{
+.hero-pattern {
     z-index: 1;
     position: absolute;
     top: -30px;
     left: -200px;
-    scale: 82%; 
+    scale: 82%;
     overflow: hidden;
 }
 
-.hero-back{
+.hero-back {
     z-index: 0;
     position: absolute;
     left: 50px;
     scale: 70%;
 }
 
-.navigation-div{
+.navigation-div {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -72,7 +72,7 @@ Index Page Start
     margin-top: 20px;
 }
 
-.nav-bar{
+.nav-bar {
     width: 45%;
     display: flex;
     align-items: center;
@@ -85,22 +85,16 @@ Index Page Start
     top: 20px;
 }
 
-.nav-logo{
+.nav-logo {
     scale: 70%;
 }
 
-.nav-entries-logo:hover{
-
-    filter:
-    invert(17%)
-    sepia(40%)
-    saturate(520%)
-    hue-rotate(352deg)
-    brightness(68%) 
-    contrast(97%);
+.nav-entries-logo:hover {
+    filter: invert(17%) sepia(40%) saturate(520%) hue-rotate(352deg)
+        brightness(68%) contrast(97%);
 }
 
-.nav-entries{
+.nav-entries {
     font-size: 18px;
     font-weight: 400;
     text-decoration: none;
@@ -108,17 +102,17 @@ Index Page Start
     transition: 0.2s ease-in-out;
 }
 
-.nav-entries:hover{
-color: #D3AD7F;
+.nav-entries:hover {
+    color: #d3ad7f;
 }
 
-#hero{
+#hero {
     display: flex;
     width: 100vw;
     height: 100vh;
 }
 
-.caption-div{
+.caption-div {
     z-index: 10;
     overflow: hidden;
     position: absolute;
@@ -126,26 +120,26 @@ color: #D3AD7F;
     left: 350px;
 }
 
-.caption-entries{
+.caption-entries {
     font-weight: 600;
     font-size: 45px;
     color: var(--color-secondary);
     margin-top: -18px;
 }
 
-.caption-entries-span{
+.caption-entries-span {
     font-size: 45px;
     font-weight: 600;
-    color: #CE1717;
-    transition: 0.2s ease-in-out;   
+    color: #ce1717;
+    transition: 0.2s ease-in-out;
 }
 
-.caption-entries-span:hover{
-  text-shadow: 10px 20px 6rem #ff0505;
-  color: #fa402f;
+.caption-entries-span:hover {
+    text-shadow: 10px 20px 6rem #ff0505;
+    color: #fa402f;
 }
 
-.sign-in-btn-hero-div{
+.sign-in-btn-hero-div {
     z-index: 10;
     position: absolute;
     top: 540px;
@@ -154,21 +148,21 @@ color: #D3AD7F;
     height: 50px;
 }
 
-.sign-in-btn-hero{
+.sign-in-btn-hero {
     text-decoration: none;
     font-weight: 600;
     font-size: 20px;
     color: var(--color-secondary);
     padding: 10px 30px;
-    background-color: #62011D;
+    background-color: #62011d;
     transition: 0.2s ease-in-out;
 }
 
-.sign-in-btn-hero:hover{
-    background-color: #CE1717;
+.sign-in-btn-hero:hover {
+    background-color: #ce1717;
 }
 
-.nextpage-btn-div{
+.nextpage-btn-div {
     width: 100%;
     margin-top: 550px;
     display: flex;
@@ -177,7 +171,7 @@ color: #D3AD7F;
     justify-content: center;
 }
 
-.nextpage-btn-div a{
+.nextpage-btn-div a {
     animation-name: floating;
     animation-duration: 3s;
     animation-iteration-count: infinite;
@@ -197,8 +191,7 @@ color: #D3AD7F;
     }
 }
 
-
-.naxt-page-caption{
+.naxt-page-caption {
     text-align: center;
     font-size: 18px;
     font-weight: 400;
@@ -207,7 +200,7 @@ color: #D3AD7F;
     margin-top: 20px;
 }
 
-#guide{
+#guide {
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -217,13 +210,13 @@ color: #D3AD7F;
     z-index: 2;
 }
 
-.back-patters-guide{
+.back-patters-guide {
     position: absolute;
     scale: 80%;
     z-index: -10;
 }
 
-.back-image-guide{
+.back-image-guide {
     position: absolute;
     scale: 80%;
     top: 1020px;
@@ -231,7 +224,7 @@ color: #D3AD7F;
     z-index: -5;
 }
 
-.sec-heading-container{
+.sec-heading-container {
     display: flex;
     width: 100%;
     align-items: center;
@@ -239,7 +232,7 @@ color: #D3AD7F;
     margin-top: 120px;
 }
 
-.welcome-note-div{
+.welcome-note-div {
     display: flex;
     width: 75%;
     justify-content: space-around;
@@ -247,64 +240,64 @@ color: #D3AD7F;
     margin-top: 80px;
 }
 
-.sec-head-1{
+.sec-head-1 {
     text-transform: uppercase;
     font-weight: 600;
     font-size: 35px;
     color: var(--color-secondary);
 }
 
-.sec-head-2{
-    color: #80A093;
+.sec-head-2 {
+    color: #80a093;
     margin-top: -15px;
 }
 
-.since-text{
+.since-text {
     font-weight: 700;
     font-size: 20px;
-    color: #D3AD7F;
+    color: #d3ad7f;
     margin-bottom: -40px;
     margin-left: 5px;
 }
 
-.since-year{
+.since-year {
     font-weight: 700;
     font-size: 100px;
-    color: #D3AD7F;
+    color: #d3ad7f;
 }
 
-.welcome-para-text{
+.welcome-para-text {
     width: 400px;
     color: var(--color-secondary);
     font-weight: 400;
     font-size: 18px;
 }
 
-.guide-spec-container{
+.guide-spec-container {
     display: flex;
     width: 65%;
     justify-content: space-between;
     margin-top: 70px;
 }
 
-.guide-spec-content h1{
+.guide-spec-content h1 {
     font-weight: 800;
     font-size: 30px;
-    color: #D3AD7F;
+    color: #d3ad7f;
 }
 
-.guide-spec-head-sec2{
+.guide-spec-head-sec2 {
     margin-top: -20px;
 }
 
-.guide-spec-content p{
+.guide-spec-content p {
     font-weight: 400;
     font-size: 15px;
     color: var(--color-secondary);
     width: 255px;
 }
 
-#explore{
+#explore {
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -313,14 +306,14 @@ color: #D3AD7F;
     z-index: 2;
 }
 
-.explore-back-pattern{
+.explore-back-pattern {
     position: absolute;
     scale: 80%;
     z-index: -2;
     top: 1550px;
 }
 
-.explore-vector{
+.explore-vector {
     position: absolute;
     scale: 80%;
     top: 1520px;
@@ -328,20 +321,20 @@ color: #D3AD7F;
     z-index: -10;
 }
 
-.sec-head-1-explore{
+.sec-head-1-explore {
     color: #024126;
 }
 
-.explore-spec-content h1{
+.explore-spec-content h1 {
     color: #024126;
 }
 
-.explore-spec-content p{
-    color: #836F57;
+.explore-spec-content p {
+    color: #836f57;
     font-weight: 600;
 }
 
-#about{
+#about {
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -350,11 +343,11 @@ color: #D3AD7F;
     z-index: 2;
 }
 
-.sec-head-1-about{
+.sec-head-1-about {
     color: var(--color-secondary);
 }
 
-.about-para-div p{
+.about-para-div p {
     width: 900px;
     font-weight: 500;
     font-size: 15px;
@@ -370,19 +363,19 @@ Index Page End
 Sign-Up Page Start
 ------------------------------------------------------------------------------ */
 
-.user-container{
+.user-container {
     width: 100vw;
     height: 100vh;
     align-items: center;
 }
 
-.login-patterns{
+.login-patterns {
     position: absolute;
     scale: 80%;
     z-index: 1;
 }
 
-.signup-head-div{
+.signup-head-div {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -390,18 +383,18 @@ Sign-Up Page Start
     z-index: 2;
 }
 
-.signup-head-text{
+.signup-head-text {
     font-weight: 600;
     font-size: 50px;
     color: var(--color-secondary);
 }
 
-.signup-head-text2{
-    color: #80A093;
+.signup-head-text2 {
+    color: #80a093;
     margin-top: -20px;
 }
 
-.login-entries-container{
+.login-entries-container {
     display: flex;
     flex-direction: column;
     background-color: var(--color-secondary);
@@ -411,60 +404,426 @@ Sign-Up Page Start
     z-index: 2;
 }
 
-.login-entries-set{
+.login-entries-set {
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
 }
 
-.login-text-box{
+.login-text-box {
     width: 250px;
-    border: 2px solid #80A093;
+    border: 2px solid #80a093;
     outline: none;
     font-size: 18px;
     font-weight: 500;
     padding: 5px 10px;
 }
 
-.login-text-box:focus{
-    background-color: #80A093;
+.login-text-box:focus {
+    background-color: #80a093;
 }
 
-.login-entries-set label{
+.login-entries-set label {
     font-weight: 400;
     font-size: 18px;
     color: #111;
 }
 
-.login-entries-set a{
+.submit-btn-login {
     text-decoration: none;
     font-weight: 600;
     font-size: 18px;
     color: #111;
-    background-color: #80A093;
+    background-color: #80a093;
     align-self: center;
     padding: 5px 92px;
     margin-top: 30px;
     transition: 0.2s ease-in-out;
 }
 
-.login-entries-set a:hover{
+.submit-btn-login:hover {
     background-color: #024126;
     color: var(--color-secondary);
 }
 
-.user-type-btn{
+.user-type-btn {
     text-decoration: none;
     font-weight: 500;
     font-size: 18px;
-    color: #AAAAAA;
+    color: #aaaaaa;
     align-self: center;
 }
 
-.sign-in-container{
+.sign-in-container {
     margin-top: 80px;
+}
+
+.error {
+    background-color: var(--color-secondary);
+    color: #ce1717;
+    position: fixed;
+    top: 630px;
+    left: 635px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.error-signup {
+    top: 570px;
+    margin-left: 20px;
 }
 
 /* ------------------------------------------------------------------------------
 Sign-Up Page End
+------------------------------------------------------------------------------ */
+
+/* ------------------------------------------------------------------------------
+Dashboard Page Start
+------------------------------------------------------------------------------ */
+
+.dash-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: #f2e8df;
+}
+
+.dash-nav-container {
+    width: 100%;
+    height: 13%;
+    background-color: #024126;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 80px;
+}
+
+.logout-dash-btn {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    border: 3px solid #ce1717;
+    padding: 2px 20px;
+    border-radius: 20px;
+    transition: 0.2s ease-in-out;
+}
+
+.logout-dash-btn:hover {
+    background-color: #80a093;
+    border: 3px solid #ffffff;
+}
+
+.dash-nav-design {
+    position: absolute;
+    width: 60px;
+    top: 0px;
+    left: 250px;
+}
+
+.dash-content-div {
+    width: 100%;
+    height: 87%;
+    display: flex;
+}
+
+.dash-main-nav-div {
+    width: 22%;
+    height: 100%;
+}
+
+.dash-contents-div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.dash-content-container {
+    display: flex;
+    width: 100%;
+    height: 50%;
+    padding: 0 100px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.dash-content-box {
+    width: 230px;
+    height: 180px;
+    background-color: #80a093;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.dash-content-box2 {
+    background-color: #ca6c6c;
+}
+
+.dash-content-box h4 {
+    color: #f2e8df;
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.dash-content-box h2 {
+    color: #f2e8df;
+    font-weight: 700;
+    font-size: 80px;
+}
+
+.dash-hr,
+.dash-content-hr {
+    border: 2px solid #bbc2c0;
+}
+
+.dash-content-hr {
+    margin: 0 100px;
+}
+
+.dash-nav-main-entry {
+    width: 100%;
+    display: flex;
+    margin-top: 100px;
+}
+
+.dash-nav-main-entry:hover .dash-nav-main-text h3 {
+    color: #ce1717;
+}
+
+.dash-nav-main-entry:hover .dash-nav-main-logo img {
+    filter: invert(16%) sepia(86%) saturate(3190%) hue-rotate(350deg)
+        brightness(101%) contrast(104%);
+}
+
+.dash-nav-main-logo {
+    width: 30%;
+    display: flex;
+    margin-left: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.dash-nav-main-logo img {
+    width: 35px;
+}
+
+.dash-nav-main-text {
+    width: 70%;
+    color: #ce1717;
+}
+
+.dash-nav-main-text h3 {
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.dash-nav-main-entry-dummy {
+    margin-top: 30px;
+}
+
+.dash-nav-main-text-dummy h3 {
+    color: #111;
+}
+
+.dash-nav-main-text a {
+    text-decoration: none;
+    color: #ce1717;
+}
+
+.dash-nav-main-text-dummy a {
+    text-decoration: none;
+    color: #111;
+}
+
+/* ------------------------------------------------------------------------------
+Dashboard Page End
+------------------------------------------------------------------------------ */
+
+/* ------------------------------------------------------------------------------
+Wines Page Start
+------------------------------------------------------------------------------ */
+
+.dash-wines-content-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.dash-wines-add-wine-div {
+    width: 100%;
+    margin: 20px 100px;
+}
+
+.dash-wines-add-wine-div a {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 22px;
+    color: #ffffff;
+    background-color: #ce1717;
+    padding: 10px 10px;
+    transition: 0.2s ease-in-out;
+}
+
+.dash-wines-add-wine-div a:hover {
+    border-radius: 30px;
+}
+
+.dash-wines-list-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dash-wines-list-head {
+    width: 85%;
+    display: flex;
+    background-color: #80a093;
+    padding: 10px 10px;
+    margin-top: 10px;
+}
+
+.dash-wine-collection-detailed {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+}
+
+.dash-wines-list-head-value {
+    background-color: #ffffff;
+    transition: 0.2s ease-in-out;
+}
+
+.dash-wines-text {
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.dash-wines-text-black {
+    color: #111;
+    font-weight: 500;
+}
+
+.dash-wines-slno {
+    width: 10%;
+}
+
+.dash-wines-name {
+    width: 40%;
+}
+
+.dash-wines-winery {
+    width: 25%;
+}
+
+.dash-wines-region {
+    width: 25%;
+}
+
+.dash-wines-list-head-value:hover {
+    background-color: #c5eedd;
+    scale: 102%;
+}
+
+/* ------------------------------------------------------------------------------
+Wines Page End
+------------------------------------------------------------------------------ */
+
+/* ------------------------------------------------------------------------------
+Add Wines Page Start
+------------------------------------------------------------------------------ */
+
+.dash-add-wines-container {
+    display: flex;
+    align-items: center;
+}
+
+.dash-add-wine-entry-container {
+    width: 70%;
+    height: 500px;
+    background-color: #80a093;
+    margin-top: 80px;
+    display: flex;
+}
+
+.dash-add-wines-content-div1,
+.dash-add-wines-content-div2 {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 50px 0;
+}
+
+.add-wines-sec {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-wines-sec input {
+    width: 220px;
+    padding: 5px 10px;
+    font-size: 18px;
+    border: 2px solid #fff;
+}
+
+.add-wines-sec label {
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.add-wines-sec input:focus {
+    border: 2px solid #ce1717;
+    outline: none;
+}
+
+#region {
+    width: 220px;
+    padding: 5px 10px;
+    font-size: 18px;
+    border: 2px solid #fff;
+}
+
+#region:focus {
+    border: 2px solid #ce1717;
+}
+
+.add-wine-sub-btn {
+    padding: 30px;
+    background-color: #ce1717;
+    color: #fff;
+    font-weight: 600;
+    font-size: 24px;
+    transition: 0.2s ease-in-out;
+}
+
+.add-wine-sub-btn:hover {
+    cursor: pointer;
+    background-color: #024126;
+}
+
+.dash-add-wine-entry-container-add-wineries {
+    height: 400px;
+}
+
+.dash-add-wine-entry-container-add-wine-coll {
+    width: 60%;
+    height: 230px;
+}
+
+.add-wines-coll-sec{
+    width: 100%;
+}
+
+/* ------------------------------------------------------------------------------
+Add Wines Page End
 ------------------------------------------------------------------------------ */
