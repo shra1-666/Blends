@@ -3,12 +3,16 @@ session_start();
 $uname=$_SESSION['userid'];
 $mysqli = require "../PHP/DataBase/dbConnect.php";
 $count=0;
-    
-$sql = sprintf("SELECT wine_list.*,DATE(creation_date),COUNT(collections.wine_id) as num_wines FROM wine_list  LEFT JOIN collections ON wine_list.list_id = collections.list_id
-                    WHERE collections.userid='$uname' and wine_list.list_id=collections.list_id group by wine_list.list_id, wine_list.list_name");
+//Code for selecting total no of bottles
+
+$sql = sprintf("SELECT w.wine_name,wn.winery_name,r.review_text FROM wines w LEFT JOIN reviews r ON w.wine_id=r.wine_id INNER JOIN wineries wn ON w.winery_id=wn.winery_id
+                    WHERE w.userid='$uname' and r.userid='$uname' and wn.userid='$uname' and r.review_text IS NOT NULL");
 $result = $mysqli->query($sql);
 
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,19 +60,19 @@ $result = $mysqli->query($sql);
 
                 <div class="dash-nav-main-entry dash-nav-main-entry-dummy">
                     <div class="dash-nav-main-logo">
-                        <img class="dashboard-current-color" src="../Resources/Dash4.svg" alt="">
+                        <img src="../Resources/Dash4.svg" alt="">
                     </div>
-                    <div class="dash-nav-main-text">
+                    <div class="dash-nav-main-text dash-nav-main-text-dummy">
                         <a href=""><h3>Collection</h3></a>
                     </div>
                 </div>
 
                 <div class="dash-nav-main-entry dash-nav-main-entry-dummy">
                     <div class="dash-nav-main-logo">
-                        <img src="../Resources/Dash5.svg" alt="">
+                        <img class="dashboard-current-color" src="../Resources/Dash5.svg" alt="">
                     </div>
-                    <div class="dash-nav-main-text dash-nav-main-text-dummy">
-                        <a href="dash-reviews.php"><h3>Review</h3></a>
+                    <div class="dash-nav-main-text">
+                        <a href=""><h3>Notes</h3></a>
                     </div>
                 </div>
 
@@ -77,7 +81,7 @@ $result = $mysqli->query($sql);
                         <img src="../Resources/Dash6.svg" alt="">
                     </div>
                     <div class="dash-nav-main-text dash-nav-main-text-dummy">
-                        <a href=""><h3>Inventory</h3></a>
+                        <a href=""><h3>Regions</h3></a>
                     </div>
                 </div>
 
@@ -86,24 +90,21 @@ $result = $mysqli->query($sql);
             <div class="dash-contents-div">
                 <div class="dash-wines-content-container">
                     <div class="dash-wines-add-wine-div">
-                        <a href="dash-create-coll.php">Create Collection</a>
+                        <a href="dash-addReviews.php">Add note</a>
                     </div>
                     <div class="dash-wines-list-container">
                         <div class="dash-wines-list-head">
-                            <div class="dash-wines-slno coll-1">
+                            <div class="dash-wines-slno">
                                 <h1 class="dash-wines-text">Sl. No</h1>
                             </div>
-                            <div class="dash-wines-name coll-2">
-                                <h1 class="dash-wines-text">Collection name</h1>
+                            <div class="dash-wines-name">
+                                <h1 class="dash-wines-text">Wine name</h1>
                             </div>
-                            <div class="dash-wines-winery coll-3">
-                                <h1 class="dash-wines-text">No of items</h1>
+                            <div class="dash-wines-winery">
+                                <h1 class="dash-wines-text">Winery</h1>
                             </div>
-                            <div class="dash-wines-region coll-4">
-                                <h1 class="dash-wines-text">Created date</h1>
-                            </div>
-                            <div class="coll-5">
-                                <h1 class="dash-wines-text"></h1>
+                            <div class="dash-wines-region">
+                                <h1 class="dash-wines-text">Note</h1>
                             </div>
                         </div>
 
@@ -111,31 +112,22 @@ $result = $mysqli->query($sql);
                             while ($row = mysqli_fetch_assoc($result))
                             {
                                 $count=$count+1;
-                                $redir_url='dash-coll-detailed.php?listid=' . urlencode($row["list_id"]);
                         ?>
 
-                        <a class="dash-wine-collection-detailed dash-wine-collection-detailed-2" href="<?php echo $redir_url; ?>">
                         <div class="dash-wines-list-head dash-wines-list-head-value">
-                            <div class="dash-wines-slno coll-1">
+                            <div class="dash-wines-slno">
                                 <h1 class="dash-wines-text dash-wines-text-black"><?php echo $count; ?></h1>
                             </div>
-                            <div class="dash-wines-name coll-2">
-                                <h1 class="dash-wines-text dash-wines-text-black"><?php echo $row["list_name"]; ?></h1>
+                            <div class="dash-wines-name">
+                                <h1 class="dash-wines-text dash-wines-text-black"><?php echo $row["wine_name"]; ?></h1>
                             </div>
-                            <div class="dash-wines-winery coll-3">
-                                <h1 class="dash-wines-text dash-wines-text-black"><?php echo $row["num_wines"]; ?></h1>
+                            <div class="dash-wines-winery">
+                                <h1 class="dash-wines-text dash-wines-text-black"><?php echo $row["winery_name"]; ?></h1>
                             </div>
-                            <div class="dash-wines-region coll-4">
-                                <h1 class="dash-wines-text dash-wines-text-black"><?php echo $row["DATE(creation_date)"]; ?></h1>
-                            </div>
-                            <div class="coll-5">
-                                <?php
-                                    $redir_url2='dash-coll-rename.php?list_id=' . urlencode($row["list_id"]);
-                                ?>
-                                <a href="<?php echo $redir_url2; ?>" class="dash-wines-text">Rename </a>
+                            <div class="dash-wines-region">
+                                <h1 class="dash-wines-text dash-wines-text-black"><?php echo $row["review_text"]; ?></h1>
                             </div>
                         </div>
-                        </a>
 
                         <?php
                             }
